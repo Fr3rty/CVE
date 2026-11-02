@@ -4,7 +4,7 @@ Vulnerabilities we found, each with a write-up and a runnable proof-of-concept s
 
 | Product | Version | Type | Severity | ID | Details |
 |---|---|---|---|---|---|
-| XunRuiCMS (dayrui) | 4.7.4 | Unauthenticated SQL injection (CWE-89) | High · CVSS 3.1 7.5 | CVE pending | [XunRuiCMS-4.7.4](XunRuiCMS-4.7.4/) |
+| XunRuiCMS (dayrui) | 4.7.4 | Unauthenticated SQL injection (CWE-89) | High · CVSS 3.1 7.5 | [CVE-2026-120347](https://www.cve.org/CVERecord?id=CVE-2026-120347) | [XunRuiCMS-4.7.4](XunRuiCMS-4.7.4/) |
 
 Each folder holds one vulnerability: `README.md` for the write-up and a single-file script that reproduces it.
 

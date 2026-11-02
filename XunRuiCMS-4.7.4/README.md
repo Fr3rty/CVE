@@ -1,13 +1,13 @@
 # XunRuiCMS 4.7.4 — Unauthenticated SQL Injection in the Member Template Endpoint
 
-> **Status**: disclosed · **CVE**: pending
+> **Status**: disclosed · **CVE**: CVE-2026-120347
 > **Discovered by**: fr3rty
 > **Disclosure date**: 2026-10-30
 > **Affected**: XunRuiCMS 4.7.4 (official package, build 2026-10-30)
 > **Severity**: High — CVSS 3.1 `7.5` / CVSS 4.0 `8.7`
 > **CWE**: CWE-89 (SQL Injection)
 
-This page is the public advisory for the vulnerability. It is written so that the vendor, a CNA, and any site operator can verify the issue without contacting the reporter.
+This page is an independent reproduction of the issue later published as CVE-2026-120347 (VulDB, 2026-11-02). The analysis, payload, and verifier below were produced independently by fr3rty; the CVE ID is recorded here so the two can be cross-referenced.
 
 ---
 
@@ -29,7 +29,7 @@ GET /index.php?s=member&c=api&m=template&name=search.html&module=news&catid=<PAY
 |---|---|
 | Affected | XunRuiCMS **4.7.4** (official package, build 2026-10-30) |
 | Not affected (confirmed) | none — earlier versions were not tested and are not claimed |
-| Fixed | no fixed release as of 2026-10-30 |
+| Fixed | partially: vendor commit `9b6ea0cf` (2026-09-17) reworks `list_tag()`; the 4.7.4 package used here still reproduced the issue |
 | Authentication required | none |
 | Configuration required | default install; `Member` application installed and one content module present (the package ships `news`) |
 
@@ -158,6 +158,7 @@ No CVE exists for XunRuiCMS 4.7.3 or 4.7.4.
 |---|---|
 | 2026-10-30 | Found during a source audit of the 4.7.4 package; reproduced on a clean install |
 | 2026-10-30 | Advisory published |
+| 2026-11-02 | CVE-2026-120347 assigned by VulDB |
 
 ---
 
