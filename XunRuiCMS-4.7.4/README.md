@@ -109,7 +109,9 @@ Response excerpt:
 <div class="ep-side-hit-desc">~VER-10.11.19-MariaDB~</div>
 ```
 
-A runnable script that reproduces this with the Python standard library is linked below. It also carries a time-based fallback for sites whose template was edited.
+A runnable script using only the Python standard library is linked below ([`poc.py`](poc.py)). It does not assume `search.html`: it enumerates template candidates and picks the one whose `{module catid=$catid}` tag actually reaches SQL, then tries three extraction channels in order — UNION echo, an error-based boolean oracle (`IF(cond,1,exp(999))`, one request per bit), and a time-based fallback.
+
+The same script first checks whether the endpoint exists at all. Sites whose `App/Member/Controllers/Api.php` predates `template()` return `404` for `s=member&c=api&m=template` and are reported as not affected; the framework copy `s=api&c=api&m=template` is hardened and does not inject.
 
 ---
 
